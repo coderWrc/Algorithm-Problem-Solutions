@@ -25,15 +25,17 @@
 >-牛客（刷题网站）：【新手上路】语法入门&算法入门题单
 https://ac.nowcoder.com/discuss/817596
 -牛客（刷题网站）：【237题】算法基础精选题单：
-https://ac.nowcoder.com/discuss/926597?type=101&order=0&pos=3&page=
-2&channel=-1&source_id=1- codeforcs （刷题网站）：
+https://ac.nowcoder.com/discuss/926597?type=101&order=0&pos=3&page=2&channel=-1&source_id=1-
+>codeforcs （刷题网站）：
 https://codeforces.com/
 >- CSDN（你遇到的各种小问题几乎都能在这里得到解答）：
-https://www.csdn.net - AcWing （刷题网站）：
+https://www.csdn.net
+>- AcWing （刷题网站）：
 https://www.acwing.com/about/
 -知识点题单网站：
 https://oi-wiki.org/
-https://www.programmercarl.com/-洛谷（刷题网站）：
+https://www.programmercarl.com/
+-洛谷（刷题网站）：
 https://www.luogu.com.cn/
 ***
 >比特就业课:https://cms.bitejiuyeke.com/clanguage
