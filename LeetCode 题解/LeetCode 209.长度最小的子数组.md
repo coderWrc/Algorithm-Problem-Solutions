@@ -1,5 +1,6 @@
 # [长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/description/)  
 >
+**C++**
 ```
 class Solution 
 {
@@ -48,4 +49,30 @@ public:
         return ans <= nums.size() ? ans : 0;
     }
 };
+```
+**Golang**
+```
+func minSubArrayLen(target int, nums []int) int {
+    if (len(nums) == 0) {
+        return 0
+    }
+    ans := len(nums) + 1
+    l := 0
+    s := 0
+    for r := 0; r < len(nums); r++ {
+        s += nums[r]
+        for s - nums[l] >= target {
+            s -= nums[l]
+            l++
+        }
+        if (s >= target) {
+        ans = min(ans, r - l + 1)
+        }
+    }
+    if (ans <= len(nums)) {
+        return ans
+    } else {
+        return 0
+    }
+}
 ```
