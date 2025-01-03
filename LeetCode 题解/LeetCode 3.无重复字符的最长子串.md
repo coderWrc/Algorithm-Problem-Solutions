@@ -19,3 +19,20 @@ public:
     }
 };
 ```
+**Golang**
+```
+func lengthOfLongestSubstring(s string) int {
+    mp := map[byte]int{}
+    ans := 0
+    l := 0
+    for r := 0; r < len(s); r++ {
+        mp[s[r]]++
+        for mp[s[r]] > 1 {
+            mp[s[l]]--
+            l++
+        }
+        ans = max(ans, r - l + 1)
+    }
+    return ans
+}
+```
