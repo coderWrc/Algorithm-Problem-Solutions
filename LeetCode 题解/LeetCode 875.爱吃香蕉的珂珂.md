@@ -30,3 +30,27 @@ public:
     }
 };
 ```
+**Golang**
+>第一次遇到sort.Search
+```
+func minEatingSpeed(piles []int, h int) int {
+    // 先算出最快速度
+    max := 0
+    for _, pile := range piles {
+        if pile > max {
+            max = pile
+        }
+    }
+    // 速度范围是 [1, max] ，sort.Search会从[0, max - 1)中取出一个值speed
+    // speed为[0, max - 1]中最小的使函数func(speed int)返回true的值，并且f(speed + 1)也为true
+    // 如果无法找到该值(speed)，则返回max - 1，这也是为什么前面加了个一
+    return 1 + sort.Search(max - 1, func(speed int) bool {
+        speed++ // 处理 speed == 0 的情况；不是通过这里来让speed++的，而是通过sort.Search的二分查找来让speed更新的
+        time := 0
+        for _, pile := range piles {
+            time += (pile + speed - 1) / speed
+        }
+        return time <= h
+    }) // 这里还有半个括号
+}
+```
