@@ -8,6 +8,7 @@
 >5. 那么这个个数怎么得到呢，<= upper-nums[j] 的 nums[i] 的个数，就是>upper-nums[j]的第一个数的下标；同理< lower-nums[j] 的 nums[i] 的个数，就是>=lower-nums[j]的第一个数的下标
 
 **参考代码**
+**C++**
 ```
 class Solution 
 {
