@@ -1,4 +1,5 @@
-# [H 指数 II](https://leetcode.cn/problems/h-index-ii/description/)
+# [H 指数 II](https://leetcode.cn/problems/h-index-ii/description/)  
+**C++**
 ```
 class Solution 
 {
@@ -19,4 +20,20 @@ public:
         return l;
     }
 };
+```
+**Golang**
+```
+func hIndex(citations []int) int {
+    n := len(citations)
+    l, r := 0, n + 1
+    for l + 1 < r {
+        mid := l + (r - l) / 2
+        if (citations[n - mid] >= mid) {
+            l = mid
+        } else {
+            r = mid
+        }
+    }
+    return l
+}
 ```
