@@ -26,3 +26,16 @@ public:
     }
 };
 ```
+**Golang**
+>**sort.Search 函数的返回值类型是 int**。sort.Search 是一个通用的二分查找函数，它可以在任意有序区间内查找满足某个条件的位置。它的返回值是一个整数索引，表示第一个满足条件的元素的位置。
+```
+func countFairPairs(nums []int, lower int, upper int) (ans int64) {
+    sort.Ints(nums)
+    for j, x := range nums {
+        r := sort.SearchInts(nums[: j], upper - x + 1)
+        l := sort.SearchInts(nums[: j], lower - x)
+        ans += int64(r - l)
+    }
+    return
+}
+```
