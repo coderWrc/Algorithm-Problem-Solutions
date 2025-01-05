@@ -70,29 +70,29 @@ SpringBoot+vue练手级项目实战，真实的在线博客系统~（码神之�
 SpringBoot+MyBatis+MySQL电脑商城项目实战【SpringBoot项目实战】（袁庭新）        链接：https://pan.baidu.com/s/1MyBJ-gGBqO3sxP8qzSB_NQ  
 提取码：dnj5        
 两小时教你搭出Java图书管理项目（完整版）        链接：https://pan.baidu.com/s/1gSLoba-7gtSygKXEWxPDzA 
-提取码：9p25springboot+mybatisplus         链接：https://pan.baidu.com/s/1qQObbEVh25WaXVhrAdcjLw?pwd=7k4s 
+提取码：9p25springboot+mybatisplus         链接：https://pan.baidu.com/s/1qQObbEVh25WaXVhrAdcjLw?pwd=7k4s   
 提取码：7k4s                 
-企业级金融项目实战（博为峰）        https://pan.baidu.com/s/1dkkAGfCPQ6fMHfUCKO0cFw?pwd=k0rq                
-探花交友【交友app】源码（黑马）        链接：https://pan.baidu.com/s/1PqqK3NwIu8YcRAIUWy4QfA?pwd=4inp 
+企业级金融项目实战（博为峰）        https://pan.baidu.com/s/1dkkAGfCPQ6fMHfUCKO0cFw?pwd=k0rq                  
+探花交友【交友app】源码（黑马）        链接：https://pan.baidu.com/s/1PqqK3NwIu8YcRAIUWy4QfA?pwd=4inp   
 提取码：4inp 
-学生管理系统        链接: https://pan.baidu.com/s/1xdBqn8kq3xiYA6ZbtG40iw?pwd=8888 提取码: 8888 复制这段内容后打开百度网盘手机App，操作更方便哦 
-基于springboot+mybatis+springMVC做一个【送水公司后台管理系统】涵盖文件上传，图表统计，crud等需求（哇哈一劫）        链接:https://pan.baidu.com/s/1HEhuZ1TH03sfwz81kPfRsw?pwd=8888 
+学生管理系统        链接: https://pan.baidu.com/s/1xdBqn8kq3xiYA6ZbtG40iw?pwd=8888 提取码: 8888 复制这段内容后打开百度网盘手机App，操作更方便哦   
+基于springboot+mybatis+springMVC做一个【送水公司后台管理系统】涵盖文件上传，图表统计，crud等需求（哇哈一劫）        链接:https://pan.baidu.com/s/1HEhuZ1TH03sfwz81kPfRsw?pwd=8888   
 提取码:8888                
-从0到1搭建Java分布式微服务支付/闪聚支付项目，掌握大厂支付核心技术【Java项目教程】        链接：https://pan.baidu.com/s/1FIAE7sP_fQX8w_Ku4OVCAw?pwd=8888 
-提取码：8888                 SpringBoot+Vue前后端分离项目实战-神盾局管理系统 （青青菜鸟）        素材：https://pan.baidu.com/s/1ZZ8c-kRPUxY6FWzsoOOjtA 
+从0到1搭建Java分布式微服务支付/闪聚支付项目，掌握大厂支付核心技术【Java项目教程】        链接：https://pan.baidu.com/s/1FIAE7sP_fQX8w_Ku4OVCAw?pwd=8888   
+提取码：8888                 SpringBoot+Vue前后端分离项目实战-神盾局管理系统 （青青菜鸟）        素材：https://pan.baidu.com/s/1ZZ8c-kRPUxY6FWzsoOOjtA   
 提取码：up4c
 源码：https://gitee.com/green_vegetables/x-admin-project.git
-超级玛丽小游戏        链接: https://pan.baidu.com/s/1CPj1saEMR0ZuX3vhcyACDA?pwd=8888 提取码: 8888 复制这段内容后打开百度网盘手机App，操作更方便哦         
-在家待业，本科        链接：https://pan.baidu.com/s/1fcbcH1GoRUD9vENaNwBbmg?pwd=u15m 
+超级玛丽小游戏        链接: https://pan.baidu.com/s/1CPj1saEMR0ZuX3vhcyACDA?pwd=8888 提取码: 8888 复制这段内容后打开百度网盘手机App，操作更方便哦          
+在家待业，本科        链接：https://pan.baidu.com/s/1fcbcH1GoRUD9vENaNwBbmg?pwd=u15m  
 提取码：u15m 
 用Spring Boot从0到1搭建个人博客系统，项目实战帮你进阶巩固技术！【Java教程最新】(码弈)        https://note.youdao.com/ynoteshare/index.html?id=15237005d89911b03bc98f62715bc891&type=note&_time=1689323717869                
-云商城项目（咕泡学院）        链接：https://pan.baidu.com/s/1iCilPxuQmbbkOQf38ks5Kg?pwd=8888 
+云商城项目（咕泡学院）        链接：https://pan.baidu.com/s/1iCilPxuQmbbkOQf38ks5Kg?pwd=8888  
 提取码：8888                         
-【Java项目实战】基于Spring Boot从0-1搭建一个在线考试系统（附源码/数据库）（尚学堂）        链接：https://pan.baidu.com/s/1SSU3wt074juZQE9DjGBUbw?pwd=2j5g 
+【Java项目实战】基于Spring Boot从0-1搭建一个在线考试系统（附源码/数据库）（尚学堂）        链接：https://pan.baidu.com/s/1SSU3wt074juZQE9DjGBUbw?pwd=2j5g  
 提取码：2j5g                                 
-半小时解决人力资源管理系统（附源码课件）允许白嫖！助你快速毕业Java_Java项目_Java毕设（尚学堂）        链接:https://pan.baidu.com/s/1SdLBaDKd9mityRk55AVsXQ?pwd=8888 
+半小时解决人力资源管理系统（附源码课件）允许白嫖！助你快速毕业Java_Java项目_Java毕设（尚学堂）        链接:https://pan.baidu.com/s/1SdLBaDKd9mityRk55AVsXQ?pwd=8888  
 提取码:8888                                
-能写进简历的云商城！轻松掌握SpringCloud Alibaba 开发核心技术的企业级云商城项目实战【Java教程最新】(咕泡学院)        链接：https://pan.baidu.com/s/1iCilPxuQmbbkOQf38ks5Kg?pwd=8888 
+能写进简历的云商城！轻松掌握SpringCloud Alibaba 开发核心技术的企业级云商城项目实战【Java教程最新】(咕泡学院)        链接：https://pan.baidu.com/s/1iCilPxuQmbbkOQf38ks5Kg?pwd=8888  
 提取码：8888                 
-从0到1搭建Java企业级微服务冰眼冷链物流监控项目，掌握大厂核心技术【Java项目教程】(博为峰)        链接：https://pan.baidu.com/s/1sENTDWq5xzaeJ7fTyJ80mQ?pwd=8888 
+从0到1搭建Java企业级微服务冰眼冷链物流监控项目，掌握大厂核心技术【Java项目教程】(博为峰)        链接：https://pan.baidu.com/s/1sENTDWq5xzaeJ7fTyJ80mQ?pwd=8888  
 提取码：8888
