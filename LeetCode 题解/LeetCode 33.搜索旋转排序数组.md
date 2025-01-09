@@ -39,7 +39,7 @@ public:
 >  
 >其余情况左边不用管
 >
->也就是说 nums[mid] > nums[n - 1]；target > nums[n - 1]； nums[mid] >= target 这三个条件要么都成立，要么就成立，要么就成立一个，这时候右边不用管  
+>也就是说 nums[mid] > nums[n - 1]；target > nums[n - 1]； nums[mid] >= target 这三个条件要么都成立，要么就成立一个，这时候右边不用管  
 >于是就可以写出下面这种代码
 
 **码二**
