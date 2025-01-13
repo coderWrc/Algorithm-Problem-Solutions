@@ -94,5 +94,5 @@ SpringBoot+MyBatis+MySQL电脑商城项目实战【SpringBoot项目实战】（�
 提取码:8888                                
 能写进简历的云商城！轻松掌握SpringCloud Alibaba 开发核心技术的企业级云商城项目实战【Java教程最新】(咕泡学院)        链接：https://pan.baidu.com/s/1iCilPxuQmbbkOQf38ks5Kg?pwd=8888 
 提取码：8888                 
-从0到1搭建Java企业级微服务冰眼冷链物流监控项目，掌握大厂核心技术【Java项目教程】(博为峰)        链接：https://pan.baidu.com/s/1sENTDWq5xzaeJ7fTyJ80mQ?pwd=8888 
+从0到1搭建Java企业级微服务冰眼冷链物流监控项目，掌握大厂核心技术【Java项目教程】(博为峰)        链接：https://pan.baidu.com/s/1sENTDWq5xzaeJ7fTyJ80mQ?pwd=8888   
 提取码：8888
