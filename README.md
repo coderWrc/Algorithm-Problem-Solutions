@@ -29,7 +29,7 @@ https://ac.nowcoder.com/discuss/817596
 https://ac.nowcoder.com/discuss/926597?type=101&order=0&pos=3&page=2&channel=-1&source_id=1-
 >codeforcs （刷题网站）：
 https://codeforces.com/
->- CSDN（你遇到的各种小问题几乎都能在这里得到解答）：
+>- CSDN（你遇到的各种小问题几乎都能在这里得到解答）：  
 https://www.csdn.net
 >- AcWing （刷题网站）：
 https://www.acwing.com/about/
