@@ -4,7 +4,7 @@
 - [洛谷题解](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/洛谷题解/洛谷题解%20-%20目录.md)  
 - [LeetCode 题解](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/LeetCode%20题解/LeetCode%20题解%20-%20目录.md)
 - [算法原理实现](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法原理实现/算法原理实现目录.md)  
-- [算法基础](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法基础.md)   
+- [算法基础](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法基础.md)    
 
  
   
