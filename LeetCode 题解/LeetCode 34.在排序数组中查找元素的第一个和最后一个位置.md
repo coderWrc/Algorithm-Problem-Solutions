@@ -1,54 +1,1230 @@
-# [在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
-**C++**
+# 算法基础
+
+1. 模拟
+   * [多项式输出](#多项式输出)
+   * [蛇形方阵](#蛇形方阵)
+   * [字符串的展开](#字符串的展开)
+2. 高精度
+   * [A+B Problem(高精)](#ab-problem高精)
+   * [高精度减法](#高精度减法)
+   * [A*B Problem](#ab-problem)
+   * [A/B Problem](#ab-problem-1)
+3. 枚举
+   1. 普通枚举
+      * [铺地毯](#铺地毯)
+      * [回文日期](#回文日期)
+      * [扫雷](#扫雷)
+   2. 二进制枚举
+	  * [子集](#子集)
+	  * [费解的开关](#费解的开关)
+	  * [Even Parity](#even-parity)
+4. 前缀和
+   * [【模板】前缀和](#模板前缀和)
+   * [最大子段和](#最大子段和)
+   * [【模板】二维前缀和](#模板二维前缀和)
+   * [激光炸弹](#激光炸弹)
+5. 差分
+   * [【模板】差分](#模板差分)
+   * [海底高铁](#海底高铁)
+   * [【模板】二维差分](#模板二维差分)
+   * [地毯](#地毯)
+6. 双指针
+   * [唯一的雪花 Unique Snowflakes](#唯一的雪花-unique-snowflakes)
+   * [逛画展](#逛画展)
+   * [字符串](#字符串)
+   * [丢手绢](#丢手绢)
+7. 二分算法
+   1. 二分查找
+       *  [在排序数组中查找元素的第一个和最后一个位置](LeetCode%20题解/LeetCode%2034.在排序数组中查找元素的第一个和最后一个位置.md) 
+       *  [牛可乐和魔法封印](#牛可乐和魔法封印)
+>位运算 排序 哈希集合 数学  
+[只出现一次的数字](https://leetcode.cn/problems/single-number/description/)  
+[丢失的数字](https://leetcode.cn/problems/missing-number/description/)  
+[消失的数字](https://leetcode.cn/problems/missing-number-lcci/description/)  
+   
+>相向双指针  
+[两数之和 || - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/)  
+[三数之和](LeetCode%20题解/LeetCode%2015.三数之和.md)  
+   
+>滑动窗口  
+[长度最小的子数组](LeetCode%20题解/LeetCode%20209.长度最小的子数组.md)  
+[乘积小于k的子数组](https://leetcode.cn/problems/subarray-product-less-than-k/description/)  
+[无重复字符的最长子串](LeetCode%20题解/LeetCode%203.无重复字符的最长子串.md)  
   
+>二分算法  
+
+[正整数和负整数的最大计数](https://leetcode.cn/problems/maximum-count-of-positive-integer-and-negative-integer/description/)  
+[咒语和药水的成功对数](https://leetcode.cn/problems/successful-pairs-of-spells-and-potions/description/)  
+[统计公平数对的数目](LeetCode%20题解/LeetCode%202563.统计公平数对的数目.md)   
+[H 指数 ||](LeetCode%20题解/LeetCode%20275.H%20指数%20II.md)  
+[爱吃香蕉的珂珂](LeetCode%20题解/LeetCode%20875.爱吃香蕉的珂珂.md)  
+[完成旅途的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-trips/description/)  
+[最大合金数](https://leetcode.cn/problems/maximum-number-of-alloys/description/)  
+[最小化数组中的最大值](LeetCode%20题解/LeetCode%202439.最小化数组中的最大值.md)  
+[礼盒的最大甜蜜度](LeetCode%20题解/LeetCode%202517.礼盒的最大甜蜜度.md)  
+[每个小孩最多能分到多少糖果](https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/description/)  
+[两个数组间的距离值](LeetCode%20题解/LeetCode%201385.两个数组间的距离值.md)   
+[使结果不超过阈值的最小除数](https://leetcode.cn/problems/find-the-smallest-divisor-given-a-threshold/description/)  
+
+## [多项式输出](https://www.luogu.com.cn/problem/P1067)  
+[top](#算法基础)  
+```
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int n; cin >> n;
+	for (int i = n; i >= 0; i--)
+	{
+		int a; cin >> a;
+
+		if (a == 0) continue;
+
+		if (a < 0) cout << '-';
+		else if (i != n) cout << '+';
+
+		if (abs(a) != 1 || (i == 0)) cout << abs(a);
+
+		if (i == 0) continue;
+		else if (i == 1) cout << 'x';
+		else cout << "x^" << i;
+	}
+
+	return 0;
+}
+```
+
+## [蛇形方阵](https://www.luogu.com.cn/problem/P5731)  
+[top](#算法基础)  
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 15;
+
+int dx[] = { 0, 1, 0, -1 };
+int dy[] = { 1, 0, -1, 0 };
+
+int arr[N][N];
+
+int main()
+{
+	int n; cin >> n;
+	int x = 1, y = 1;
+	int pos = 0;
+
+	for (int i = 1; i <= n * n; i++)
+	{
+		arr[x][y] = i;
+		int a = x + dx[pos], b = y + dy[pos];
+		if (a < 1 || a > n || b < 1 || b > n || arr[a][b])
+		{
+			pos = (pos + 1) % 4;
+			a = x + dx[pos], b = y + dy[pos];
+		}
+		x = a, y = b;
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			printf("%3d", arr[i][j]);
+		}
+		puts("");
+	}
+
+	return 0;
+}
+```
+
+## [字符串的展开](https://www.luogu.com.cn/problem/P1098)  
+[top](#算法基础)  
+```
+#include <iostream>
+#include <cctype>
+#include <algorithm>
+
+using namespace std;
+
+int p1, p2, p3, n;
+string s;
+string ret;
+
+void add(char left, char right)
+{
+	string t;
+
+	// 遍历中间字符
+	for (char ch = left + 1; ch < right; ch++)
+	{
+		char tmp = ch;
+		// 处理p1
+		if (p1 == 2 && islower(tmp)) tmp -= 32;
+		else if (p1 == 3) tmp = '*';
+
+		// 处理p2
+		for (int i = 0; i < p2; i++)
+		{
+			t += tmp;
+		}
+	}
+
+	// 处理p3
+	if (p3 == 2) reverse(t.begin(), t.end());
+
+	ret += t;
+}
+
+int main()
+{
+	cin >> p1 >> p2 >> p3 >> s;
+	n = s.size();
+
+	for (int i = 0; i < n; i++)\
+	{
+		char ch = s[i];
+		if (s[i] != '-' || i == 0 || i == n - 1) ret += ch;
+		else
+		{
+			char left = s[i - 1], right = s[i + 1];
+			// 判断是否展开
+			if (isdigit(left) && isdigit(right) && left < right ||
+				islower(left) && islower(right) && left < right)
+			{
+				// 展开
+				add(left, right);
+			}
+			else
+			{
+				ret += ch;
+			}
+		}
+	}
+	cout << ret << endl;
+
+	return 0;
+}
+```
+
+## [A+B Problem(高精)](https://www.luogu.com.cn/problem/P1601)  
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e6 + 10;
+
+int a[N], b[N], c[N];
+int la, lb, lc;
+
+void add(int c[], int a[], int b[])
+{
+	for (int i = 0; i < lc; i++)
+	{
+		c[i] += a[i] + b[i];
+		c[i + 1] = c[i] / 10;
+		c[i] %= 10;
+	}
+	if (c[lc]) lc++;
+}
+
+int main()
+{
+	string x, y; cin >> x >> y;
+
+	la = x.size(); lb = y.size(); lc = max(la, lb);
+	for (int i = 0; i < la; i++) a[la - 1 - i] = x[i] - '0';
+	for (int i = 0; i < lb; i++) b[lb - 1 - i] = y[i] - '0';
+
+	add(c, a, b);
+
+	for (int i = lc - 1; i >= 0; i--) cout << c[i];
+
+	return 0;
+}
+```
+# [高精度减法](https://www.luogu.com.cn/problem/P2142)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e6 + 10;
+
+int a[N], b[N], c[N];
+int la, lb, lc;
+
+bool cmp(string& x, string& y)
+{
+	if (x.size() != y.size()) return x.size() < y.size();
+	return x < y;
+}
+
+void sub(int c[], int a[], int b[])
+{
+	for (int i = 0; i < lc; i++)
+	{
+		c[i] += a[i] - b[i];
+		if (c[i] < 0)
+		{
+			c[i] += 10;
+			c[i + 1] -= 1;
+		}
+	}
+	while (lc > 1 && c[lc - 1] == 0) lc--;
+}
+
+int main()
+{
+	string x, y; cin >> x >> y;
+	
+	if (cmp(x, y))
+	{
+		swap(x, y);
+		cout << '-';
+	}
+
+	la = x.size(); lb = y.size(); lc = max(la, lb);
+	for (int i = 0; i < la; i++) a[la - 1 - i] = x[i] - '0';
+	for (int i = 0; i < lb; i++) b[lb - 1 - i] = y[i] - '0';
+
+	sub(c, a, b);
+
+	for (int i = lc - 1; i >= 0; i--) cout << c[i];
+
+	return 0;
+}
+```
+# [A*B Problem](https://www.luogu.com.cn/problem/P1303)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e6 + 10;
+
+int a[N], b[N], c[N];
+int la, lb, lc;
+
+void mul(int c[], int a[], int b[])
+{
+	for (int i = 0; i < la; i++)
+	{
+		for (int j = 0; j < lb; j++)
+		{
+			c[i + j] += a[i] * b[j];
+		}
+	}
+	for (int i = 0; i < lc; i++)
+	{
+		c[i + 1] += c[i] / 10;
+		c[i] %= 10;
+	}
+	while (lc > 1 && c[lc - 1] == 0) lc--;
+}
+
+int main()
+{
+	string x, y; cin >> x >> y;
+
+	la = x.size(); lb = y.size(); lc = la + lb;
+	for (int i = 0; i < la; i++) a[la - 1 - i] = x[i] - '0';
+	for (int i = 0; i < lb; i++) b[lb - 1 - i] = y[i] - '0';
+
+	mul(c, a, b);
+
+	for (int i = lc - 1; i >= 0; i--) cout << c[i];
+
+	return 0;
+}
+```
+# [A/B Problem](https://www.luogu.com.cn/problem/P1480)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e6 + 10; 
+
+typedef long long LL;
+
+int a[N], b, c[N];
+int la, lc;
+
+void div(int c[], int a[], int b)
+{
+	LL t = 0;
+	for (int i = la - 1; i >= 0; i--)
+	{
+		t = t * 10 + a[i];
+		c[i] = t / b;
+		t %= b;
+	}
+	while (lc > 1 && c[lc - 1] == 0) lc--;
+}
+
+int main()
+{
+	string x; cin >> x >> b;
+
+	lc = la = x.size(); 
+	for (int i = 0; i < la; i++) a[la - 1 - i] = x[i] - '0';
+
+	div(c, a, b);
+
+	for (int i = lc - 1; i >= 0; i--) cout << c[i];
+
+	return 0;
+}
+```
+# [铺地毯](https://www.luogu.com.cn/problem/P1003)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e4 + 10;
+
+int n;
+int a[N], b[N], g[N], k[N];
+int x, y;
+
+int find()
+{
+	for (int i = n; i >= 1; i--)
+	{
+		if (a[i] <= x && b[i] <= y && x <= a[i] + g[i] && y <= b[i] + k[i])
+			return i;
+	}
+	return -1;
+}
+
+int main()
+{
+	cin >> n;
+	for (int i = 1; i <= n; i++) cin >> a[i] >> b[i] >> g[i] >> k[i];
+	cin >> x >> y;
+	cout << find() << endl;
+
+	return 0;
+}
+```
+# [回文日期](https://www.luogu.com.cn/problem/P2010)
+[top](#算法基础)
+>1. 法一：枚举 x ~ y 之间的所有数，判断是否是回文，如果是，再拆分成年月日，判断日期是否合法即可
+
+```
+```
+>2. 法二：仅枚举年份，构成回文形式的日月，判断日期是否合法即可
+
+```
+```
+>3. 法三：枚举所有日和月的组合，拼成回文日期，判断日期是否合法即可
+
+```
+#include <iostream>
+
+using namespace std;
+
+int x, y;
+// 9220 是闰年，所以可以直接把二月设成 29 天
+int day[] = { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+int main()
+{
+	cin >> x >> y;
+	int ret = 0; 
+	for (int i = 1; i <= 12; i++)
+	{
+		for (int j = 1; j <= day[i]; j++)
+		{
+			int k = j % 10 * 1000 + j / 10 * 100 + i % 10 * 10 + i / 10;
+			int num = k * 10000 + i * 100 + j;
+			if (num >= x && num <= y) ret++;
+		}
+	}
+	cout << ret << endl;
+
+	return 0;
+}
+```
+# [扫雷](https://www.luogu.com.cn/problem/P2327)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e4 + 10;
+
+int n;
+int a[N], b[N];
+
+int check1()
+{
+	a[1] = 0;
+	for (int i = 2; i <= n + 1; i++)
+	{
+		a[i] = b[i - 1] - a[i - 1] - a[i - 2];
+		if (a[i] < 0 || a[i] > 1) return 0;
+	}
+	if (a[n + 1] != 0) return 0;
+	return 1;
+}
+
+int check2()
+{
+	a[1] = 1;
+	for (int i = 2; i <= n + 1; i++)
+	{
+		a[i] = b[i - 1] - a[i - 1] - a[i - 2];
+		if (a[i] < 0 || a[i] > 1) return 0;
+	}
+	if (a[n + 1] != 0) return 0;
+	return 1;
+}
+
+int main()
+{
+	cin >> n;
+	for (int i = 1; i <= n; i++) cin >> b[i];
+	int ans = 0;
+	ans += check1();
+	ans += check2();
+	cout << ans << endl;
+
+	return 0;
+}
+```
+# [子集](https://leetcode.cn/problems/subsets/description/)
+[top](#算法基础)
+法一：二进制
 ```
 class Solution 
 {
 public:
-    int lower_bound(vector<int>& nums, int target)
+    vector<vector<int>> subsets(vector<int>& nums) 
     {
-        int left = -1, right = nums.size(); // 开区间 (left, right)
-        while (left + 1 < right) // 区间不为空
+        vector<vector<int>> ret;
+        int n = nums.size();
+        for (int i = 0; i < (1 << n); i++)
         {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < target) left = mid; // (mid, right)
-            else right = mid; // (left, mid)
+            vector<int> tmp;
+            for (int j = 0; j < n; j++)
+            {
+                if ((i >> j) & 1) tmp.push_back(nums[j]);
+            }
+            ret.push_back(tmp);
         }
-        return right;
-    }
-    vector<int> searchRange(vector<int>& nums, int target) 
-    {
-        int start = lower_bound(nums, target);
-        if (start == nums.size() || nums[start] != target) return vector<int>{-1, -1};
-        int end = lower_bound(nums, target + 1) - 1;
-        return vector<int>{start, end};
+        return ret;
     }
 };
 ```
->直接用库函数也行，不过有一点需要注意：
->start 和 end 是迭代器，它们指向 nums 容器中的某个位置。为了得到这些位置的索引（即从容器开始到该位置的距离），你需要计算迭代器与容器起始位置之间的距离。这可以通过减去 nums.begin() 来实现，但结果是一个 std::vector<int>::difference_type 类型的值，通常是一个有符号整数类型（如 ptrdiff_t）。**为了确保返回的是 int 类型，需要使用static_cast<int> 进行显式转换**(int)也行，不过前者更安全。
+法二：递归
+```
+```
+法三：
 ```
 class Solution 
 {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) 
+    vector<vector<int>> subsets(vector<int>& nums) 
     {
-        auto start = lower_bound(nums.begin(), nums.end(), target);
-        if (start == nums.end() || *start != target) return vector<int>{-1, -1};
-        auto end = lower_bound(nums.begin(), nums.end(), target + 1) - 1;
-        return vector<int>{static_cast<int>(start - nums.begin()), static_cast<int>(end - nums.begin())};
+        vector<vector<int>> ret = {{}};
+        for (int i = 0; i < nums.size(); i++) 
+        {
+            int n = ret.size();
+            for (int j = 0; j < n; j++)
+            {
+                ret.push_back(ret[j]);
+                ret.back().push_back(nums[i]);
+            }
+        }
+    return ret;
     }
 };
 ```
-**Golang**
-  
+# [费解的开关](https://www.luogu.com.cn/problem/P10449)
+[top](#算法基础)
 ```
-func searchRange(nums []int, target int) []int {
-    start := sort.SearchInts(nums, target)
-    if (start == len(nums) || nums[start] != target) {
-        return []int{-1, -1}
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+const int N = 10;
+
+int n = 5;
+int a[N]; // 用五个数的二进制，表示五排灯的初始状态
+int t[N]; // 备份 a 数组，用它来计算
+
+// 计算选择的按法中有多少个 1 （有多少个 1 ，按了多少次）
+int calc(int op)
+{
+	int cnt = 0;
+	while (op)
+	{
+		cnt++;
+		op &= op - 1; // 每次去掉最小的那个 1
+	}
+	return cnt;
+}
+
+int main()
+{
+	int T; cin >> T;
+	while (T--)
+	{
+		// 多组测试，注意清空之前的数据
+		memset(a, 0, sizeof a);
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				char ch; cin >> ch;
+				// 存成相反的（是1，存0，不用变；是0，存1，要变）
+				if (ch == '0') a[i] |= 1 << j;
+			}
+		}
+		int ret = 7; // 当然，这里写 0x3f3f3f3f（无穷大）也行
+		// 枚举第一行的所有按法
+		for (int i = 0; i < (1 << n); i++)
+		{
+			int cnt = 0; // 统计当前按法按的次数
+			memcpy(t, a, sizeof a); // 不能直接对 a 数组进行操作
+			int op = i; // op 表示当前行的按法
+			for (int j = 0; j < n; j++)
+			{
+				cnt += calc(op);
+				t[j] ^= op ^ (op << 1) ^ (op >> 1);
+				t[j] &= (1 << n) - 1; // 清空左移过头的影响
+				// 修改下一排的状态
+				t[j + 1] ^= op;
+				// 下一行的按法：要把上一排亮的灯，全部关掉
+				op = t[j]; // 把题目从 都变亮->都变暗 的好处之一
+			}
+			if (t[n - 1] == 0) ret = min(ret, cnt);
+		}
+		if (ret > 6) cout << -1 << endl;
+		else cout << ret << endl;
+		
+	}
+
+	return 0;
+}
+```
+# [Even Parity](https://www.luogu.com.cn/problem/UVA11464)
+[top](#算法基础)
+```
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+const int N = 20;
+
+int n;
+int a[N], t[N];
+
+int calc(int x, int y)
+{
+	int cnt = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (((x >> i) & 1) == 0 && ((y >> i) & 1) == 1) cnt++;
+		if (((x >> i) & 1) == 1 && ((y >> i) & 1) == 0) return -1;
+	}
+	return cnt;
+}
+
+int solve()
+{
+	int ret = 0x3f3f3f3f; // 记录最小的改变次数
+	// 枚举第一行的最终状态
+	for (int op = 0; op < (1 << n); op++)
+	{
+		memcpy(t, a, sizeof a);
+		int change = op;
+		int cnt = 0; // 统计 0 -> 1 的次数
+		bool flag = 1;
+		for (int i = 1; i <= n; i++)
+		{
+			// 先判断 change 是否合法
+			int c = calc(t[i], change);
+			if (c == -1)
+			{
+				flag = 0;
+				break;
+			}
+			cnt += c; // 累加次数
+			// 当前行的最终状态
+			t[i] = change;
+			// 计算下一行的最终状态
+			change = t[i - 1] ^ (t[i] << 1) ^ (t[i] >> 1);
+			change &= (1 << n) - 1;
+		}
+		if (flag) ret = min(ret, cnt);
+	}
+	if (ret == 0x3f3f3f3f) return -1;
+	else return ret;
+}
+
+int main()
+{
+	int T; cin >> T;
+	for (int k = 1; k <= T; k++)
+	{
+		// 多组测试数据，记得清空
+		memset(a, 0, sizeof a);
+		cin >> n;
+		for (int i = 1; i <= n; i++) // 避免越界访问
+		{
+			for (int j = 0; j < n; j++)
+			{
+				int x; cin >> x;
+				if (x) a[i] |= 1 << j;
+			}
+		}
+		printf("Case %d: %d\n", k, solve());
+	}
+
+	return 0;
+}
+```
+# [【模板】前缀和](https://ac.nowcoder.com/acm/problem/226282)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 1e5 + 10;
+
+int n, q;
+int a;
+LL f[N];
+
+int main()
+{
+    cin >> n >> q;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a;
+        f[i] = f[i - 1] + a;
     }
-    end := sort.SearchInts(nums, target + 1) - 1
-    return []int{start, end}
+    while (q--)
+    {
+        int l, r; cin >> l >> r;
+        cout << f[r] - f[l - 1] << endl;
+    }
+    
+    return 0;
+}
+```
+# [最大子段和](https://www.luogu.com.cn/problem/P1115)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 2e5 + 10;
+
+int n;
+int a, f[N];
+
+int main()
+{
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+	{
+		cin >> a;
+		f[i] = f[i - 1] + a;
+	}
+	int ans = -1e5;
+	int prevmin = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		ans = max(ans, f[i] - prevmin);
+		prevmin = min(prevmin, f[i]);
+	}
+	cout << ans << endl;
+
+	return 0;
+}
+```
+# [【模板】二维前缀和](https://ac.nowcoder.com/acm/problem/226333)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 1010;
+
+int n, m, q;
+LL f[N][N];
+
+int main()
+{
+    cin >> n >> m >> q;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            int a; cin >> a;
+            f[i][j] = f[i - 1][j] + f[i][j - 1] - f[i - 1][j - 1] + a;
+        }
+    }
+    while (q--)
+    {
+        int x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+        cout << f[x2][y2] - f[x1 - 1][y2] - f[x2][y1 - 1] + f[x1 - 1][y1 - 1] << endl;
+    }
+    
+    return 0;
+}
+```
+# [激光炸弹](https://www.luogu.com.cn/problem/P2280)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 5010;
+
+int n, m;
+int a[N][N], f[N][N];
+
+int main()
+{
+	cin >> n >> m;
+	while (n--)
+	{
+		int x, y, v; cin >> x >> y >> v;
+		a[x + 1][y + 1] += v;
+	}
+	int sz = 5001;
+	for (int i = 1; i <= sz; i++)
+	{
+		for (int j = 1; j <= sz; j++)
+		{
+			f[i][j] = f[i - 1][j] + f[i][j - 1] - f[i - 1][j - 1] + a[i][j];
+		}
+	}
+	int ans = 0;
+	m = min(m, sz);
+	for (int i = m; i <= sz; i++)
+	{
+		for (int j = m; j <= sz; j++)
+		{
+			ans = max(ans, f[i][j] - f[i - m][j] - f[i][j - m] + f[i - m][j - m]);
+		}
+	}
+	cout << ans << endl;
+
+	return 0;
+}
+```
+>当然，只用一个数组也行
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 5010;
+
+int n, m;
+int a[N][N];
+
+int main()
+{
+	cin >> n >> m;
+	while (n--)
+	{
+		int x, y, v; cin >> x >> y >> v;
+		a[x + 1][y + 1] += v;
+	}
+	int sz = 5001;
+	for (int i = 1; i <= sz; i++)
+	{
+		for (int j = 1; j <= sz; j++)
+		{
+			a[i][j] = a[i - 1][j] + a[i][j - 1] - a[i - 1][j - 1] + a[i][j];
+		}
+	}
+	int ans = 0;
+	m = min(m, sz);
+	for (int i = m; i <= sz; i++)
+	{
+		for (int j = m; j <= sz; j++)
+		{
+			ans = max(ans, a[i][j] - a[i - m][j] - a[i][j - m] + a[i - m][j - m]);
+		}
+	}
+	cout << ans << endl;
+
+	return 0;
+}
+```
+# [【模板】差分](https://ac.nowcoder.com/acm/problem/226303)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 1e5 + 10;
+
+int n, m;
+LL a[N];
+
+int main()
+{
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++) 
+    {
+        int x; cin >> x;
+        a[i] += x;
+        a[i + 1] -= x;
+    }
+    while (m--)
+    {
+        int l, r, k; cin >> l >> r >> k;
+        a[l] += k;
+        a[r + 1] -= k;
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        cout << a[i] << ' ';
+        a[i + 1] += a[i];
+    }
+    
+    
+    return 0;
+}
+```
+# [海底高铁](https://www.luogu.com.cn/problem/P3406)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 1e5 + 10;
+
+int n, m;
+LL f[N];
+
+int main()
+{
+	cin >> n >> m;
+	int x; cin >> x;
+	while (m-- - 1)
+	{
+		int y; cin >> y;
+		if (x < y) f[x]++, f[y]--;
+		else f[y]++, f[x]--;
+		x = y;
+	}
+	for (int i = 1; i <= n; i++) f[i] += f[i - 1];
+	LL ans = 0;
+	for (int i = 1; i < n; i++)
+	{
+		int a, b, c; cin >> a >> b >> c;
+		ans += min(a * f[i], c + b * f[i]);
+	}
+	cout << ans << endl;
+
+	return 0;
+}
+```
+# [【模板】二维差分](https://ac.nowcoder.com/acm/problem/226337)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 1010;
+
+int n, m, q;
+LL f[N][N];
+
+int main()
+{
+    cin >> n >> m >> q;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            int x; cin >> x;
+            f[i][j] += x, f[i + 1][j] -= x, f[i][j + 1] -= x, f[i + 1][j + 1] += x;
+        }
+    }
+    while (q--)
+    {
+        int x1, y1, x2, y2, k; cin >> x1 >> y1 >> x2 >> y2 >> k;
+        f[x1][y1] += k, f[x1][y2 + 1] -=k, f[x2 + 1][y1] -= k, f[x2 + 1][y2 + 1] += k;
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            f[i][j] += f[i][j- 1] + f[i - 1][j] - f[i - 1][j - 1];
+            cout << f[i][j] << ' ';
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
+```
+# [地毯](https://www.luogu.com.cn/problem/P3397)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1010;
+
+int n, m;
+int f[N][N];
+
+int main()
+{
+	cin >> n >> m;
+	while (m--)
+	{
+		int x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+		f[x1][y1]++, f[x2 + 1][y1]--, f[x1][y2 + 1]--, f[x2 + 1][y2 + 1]++;
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= n; j++)
+		{
+			f[i][j] += f[i - 1][j] + f[i][j - 1] - f[i - 1][j - 1];
+			cout << f[i][j] << ' ';
+		}
+		cout << endl;
+	}
+
+	return 0;
+}
+```
+# [唯一的雪花 Unique Snowflakes](https://www.luogu.com.cn/problem/UVA11572)
+[top](#算法基础)
+```
+#include <iostream>
+#include <unordered_map>
+
+using namespace std;
+
+const int N = 1e6 + 10;
+
+int n;
+int a[N];
+
+int main()
+{
+	int T; cin >> T;
+	while (T--)
+	{
+		cin >> n;
+		for (int i = 1; i <= n; i++) cin >> a[i];
+		int left = 1, right = 1;
+		unordered_map<int, int> mp;
+		int ans = 1;
+		while (right <= n)
+		{
+			mp[a[right]]++;
+			while (mp[a[right]] == 2)
+			{
+				ans = max(ans, right - left);
+				mp[a[left]]--;
+				left++;
+			}
+			right++;
+		}
+		ans = max(ans, right - left);
+		cout << ans << endl;
+	}
+
+	return 0;
+}
+
+
+```
+# [逛画展](https://www.luogu.com.cn/problem/P1638)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e6 + 10, M = 2e3 + 10;
+
+int n, m;
+int a[N];
+int kind;
+int mp[M];
+
+
+int main()
+{
+	cin >> n >> m;
+	for (int i = 1; i <= n; i++) cin >> a[i];
+	int left = 1, right = 1;
+	int begin = 1, ret = n - 1;
+	while (right <= n)
+	{
+		if (mp[a[right]]++ == 0) kind++;
+		while (kind == m)
+		{
+			int len = right - left;
+			if (ret > len)
+			{
+				begin = left;
+				ret = len;
+			}
+			if (mp[a[left]]-- == 1) kind--;
+			left++;
+		}
+		right++;
+	}
+	cout << begin << ' ' << begin + ret << endl;
+
+	return 0;
+}
+```
+# [字符串](https://ac.nowcoder.com/acm/problem/18386)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+string s;
+int mp[26];
+int kind;
+
+int main()
+{
+    cin >> s;
+    int left = 0, right = 0;
+    int len = s.size();
+    while (right < s.size())
+    {
+        if (mp[s[right] - 'a']++ == 0) kind++;
+        while (kind == 26)
+        {
+            len = min(len, right - left + 1);
+            if (mp[s[left] - 'a']-- == 1) kind--;
+            left++;
+        }
+        right++;
+    }
+    cout << len << endl;
+    
+    return 0;
+}
+```
+# [丢手绢](https://ac.nowcoder.com/acm/problem/207040)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e5 + 10;
+
+int n;
+int a[N];
+
+int main()
+{
+    cin >> n;
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+    int left = 1, right = 1;
+    int ans = 0, tmp = 0;
+    while (right <= n)
+    {
+        tmp += a[right++];
+        while (tmp * 2 > sum)
+        {
+            ans = max(ans, sum - tmp);
+            tmp -= a[left++];
+        }
+        ans = max(ans, tmp);
+    }
+    
+    cout << ans << endl;
+    
+    return 0;
+}
+```
+# [牛可乐和魔法封印](https://ac.nowcoder.com/acm/problem/235558)
+[top](#算法基础)
+```
+#include <iostream>
+
+using namespace std;
+
+const int N = 1e5 + 10;
+
+int n;
+int a[N];
+
+int lower_bound(int target)
+{
+    int left = -1, right = n;
+    while (left + 1 < right)
+    {
+        int mid = left + ((right - left) >> 1);
+        if (a[mid] < target) left = mid;
+        else right = mid;
+    }
+    return right;
+}
+
+int main()
+{
+    cin >> n;
+    for (int i = 0; i < n; i++) cin >> a[i];
+    int q; cin >> q;
+    while (q--)
+    {
+        int x, y; cin >>  x >> y;
+        int ans = lower_bound(y + 1) - lower_bound(x);
+        cout << ans << endl;
+    }
+    
+    return 0;
 }
 ```
