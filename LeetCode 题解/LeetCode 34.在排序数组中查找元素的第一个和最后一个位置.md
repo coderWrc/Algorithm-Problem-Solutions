@@ -35,8 +35,9 @@
    * [丢手绢](#丢手绢)
 7. 二分算法
    1. 二分查找
-       *  [在排序数组中查找元素的第一个和最后一个位置](LeetCode%20题解/LeetCode%2034.在排序数组中查找元素的第一个和最后一个位置.md) 
-       *  [牛可乐和魔法封印](#牛可乐和魔法封印)
+      * [在排序数组中查找元素的第一个和最后一个位置](LeetCode%20题解/LeetCode%2034.在排序数组中查找元素的第一个和最后一个位置.md) 
+      * [牛可乐和魔法封印](#牛可乐和魔法封印)
+
 >位运算 排序 哈希集合 数学  
 [只出现一次的数字](https://leetcode.cn/problems/single-number/description/)  
 [丢失的数字](https://leetcode.cn/problems/missing-number/description/)  
