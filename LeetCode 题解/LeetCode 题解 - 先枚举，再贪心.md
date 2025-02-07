@@ -29,7 +29,8 @@ public:
 };
 ```
 # [拿出最少数目的魔法豆](https://leetcode.cn/problems/removing-minimum-number-of-magic-beans/description/)
-[top](#先枚举再贪心)
+[top](#先枚举再贪心)  
+码一：
 ```
 class Solution 
 {
@@ -43,6 +44,34 @@ public:
         {
             sum += beans[i];
             mx = max(mx, (long long) (n - i) * beans[i]);
+        }
+        return sum - mx;
+    }
+};
+```
+码二：
+```
+class Solution 
+{
+public:
+    long long minimumRemoval(vector<int>& beans)
+    {
+        vector<int> cnt(1e5 + 1); // cnt[i] 表示有多少袋里面含 i 颗魔法豆
+        // 魔法豆总数    剩余豆子的最大值    魔法豆袋数
+        long long sum = 0, mx = 0, n = beans.size();
+        for (int& x : beans)
+        {
+            cnt[x]++;
+            sum += x;
+        }
+        // 从小到大遍历
+        for (int i = 1; i < cnt.size(); i++)
+        {
+            if (cnt[i]) // 存在含 i 颗魔法豆的袋子
+            {
+                mx = max(mx, n * i);
+                n -= cnt[i]; 
+            }
         }
         return sum - mx;
     }
