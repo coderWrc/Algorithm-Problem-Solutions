@@ -1,13 +1,13 @@
-这是一名大一计算机学生，他正在学习算法，想看看他的成长经历吗？快来吧   
+这是一名大一计算机学生，他正在学习算法，想看看他的成长经历吗？快来吧  
 ## :pencil2: 算法  
   
 - [洛谷题解](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/洛谷题解/洛谷题解%20-%20目录.md)  
 - [LeetCode 题解](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/LeetCode%20题解/LeetCode%20题解%20-%20目录.md)
-- [算法原理实现](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法原理实现/算法原理实现目录.md)   
-- [算法基础](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法基础.md)     
-    
- 
-  
+- [算法原理实现](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法原理实现/算法原理实现目录.md)  
+- [算法基础](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法基础/目录.md)   
+
+
+
 现在东西太少了，我就先随便放点东西
 ***
 >1. 题库:包含8-15届蓝桥杯真题，采用与蓝桥杯大赛相同的测评数据，供你日常练习。同时，还提供算法模板题和经典算法题，共计6000+道，助你全面提升。
@@ -29,7 +29,7 @@ https://ac.nowcoder.com/discuss/817596
 https://ac.nowcoder.com/discuss/926597?type=101&order=0&pos=3&page=2&channel=-1&source_id=1-
 >codeforcs （刷题网站）：
 https://codeforces.com/
->- CSDN（你遇到的各种小问题几乎都能在这里得到解答）：  
+>- CSDN（你遇到的各种小问题几乎都能在这里得到解答）：
 https://www.csdn.net
 >- AcWing （刷题网站）：
 https://www.acwing.com/about/
@@ -94,5 +94,5 @@ SpringBoot+MyBatis+MySQL电脑商城项目实战【SpringBoot项目实战】（�
 提取码:8888                                
 能写进简历的云商城！轻松掌握SpringCloud Alibaba 开发核心技术的企业级云商城项目实战【Java教程最新】(咕泡学院)        链接：https://pan.baidu.com/s/1iCilPxuQmbbkOQf38ks5Kg?pwd=8888 
 提取码：8888                 
-从0到1搭建Java企业级微服务冰眼冷链物流监控项目，掌握大厂核心技术【Java项目教程】(博为峰)        链接：https://pan.baidu.com/s/1sENTDWq5xzaeJ7fTyJ80mQ?pwd=8888   
+从0到1搭建Java企业级微服务冰眼冷链物流监控项目，掌握大厂核心技术【Java项目教程】(博为峰)        链接：https://pan.baidu.com/s/1sENTDWq5xzaeJ7fTyJ80mQ?pwd=8888 
 提取码：8888
