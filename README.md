@@ -12,7 +12,7 @@
 ***  
 >1. 题库:包含8-15届蓝桥杯真题，采用与蓝桥杯大赛相同的测评数据，供你日常练习。同时，还提供算法模板题和经典算法题，共计6000+道，助你全面提升。
 >>
->题库链接:https://www.lanqiao.cn/problems/?first_category_id=1
+>题库链接:https://www.lanqiao.cn/problems/?first_category_id=1  
 >>
 >蓝桥杯C/C++、Java、Python真题卷：https://www.lanqiao.cn/paper/
 >>
