@@ -3,7 +3,7 @@
 #### 三、背包
    1. 01 背包
       * [和为目标值的最长子序列的长度](#和为目标值的最长子序列的长度)
-
+      * [分割等和子集](#分割等和子集)
 
 
    2. 完全背包
@@ -52,6 +52,63 @@ class Solution {
             }
         }
         return f[target] > 0 ? f[target] : -1;
+    }
+}
+```
+# [分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/description/)
+[top](#三背包)  
+C++:
+```
+class Solution 
+{
+public:
+    bool canPartition(vector<int>& nums) 
+    {
+        int sum = 0;
+        for (int x : nums) sum += x;
+        if (sum % 2) return false;
+        sum >>= 1;
+        vector<int> f(sum + 1);
+        f[0] = true;
+        int s = 0;
+        for (int x : nums) 
+        {
+            s = min(s + x, sum);
+            for (int j = s; j >= x; j--)
+            {
+                f[j] |= f[j - x];
+            }
+            if (f[sum]) return true;
+        }
+        return false;
+    }
+};
+```
+JAVA:
+```
+class Solution {
+    public boolean canPartition(int[] nums) {
+        int sum = 0;
+        for (int x : nums) {
+            sum += x;
+        }
+        if (sum % 2 != 0) {
+            return false;
+        }
+        sum >>= 1;
+        boolean[] f = new boolean[sum + 1];
+        f[0] = true;
+        int s = 0;
+        for (int x : nums) {
+            s = Math.min(s + x, sum);
+            for (int j = s; j >= x; j--) {
+                f[j] |= f[j - x]; 
+            }
+            if (f[sum]) {
+                return true;
+            } 
+        }
+        return false;
     }
 }
 ```
