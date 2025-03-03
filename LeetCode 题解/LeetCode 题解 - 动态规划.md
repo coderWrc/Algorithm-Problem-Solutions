@@ -7,6 +7,7 @@
       * [目标和](#目标和)
       * [将一个数字表示成幂的和的方案数](#将一个数字表示成幂的和的方案数)
       * [执行操作可获得的最大总奖励 |](#执行操作可获得的最大总奖励-)
+      * [执行操作可获得的最大总奖励 ||](#执行操作可获得的最大总奖励--1)
 
    2. 完全背包
       * [零钱兑换](#零钱兑换)
@@ -234,6 +235,42 @@ public:
         }
         int ans = m - 1;
         while (!f[ans]) ans--;
+        return ans;
+    }
+};
+```
+# [执行操作可获得的最大总奖励 ||](https://leetcode.cn/problems/maximum-total-reward-using-operations-ii/description/)
+[top](#三背包)  
+C++:
+```
+class Solution 
+{
+public:
+    int maxTotalReward(vector<int>& rewardValues) 
+    {
+        // 设 m = max(rewardValues)，如果数组中包含 m − 1 或 有两个不同元素之和等于 m − 1，则答案为 2 * m − 1，无需计算 DP。
+        int m = ranges::max(rewardValues);
+        unordered_set<int> s;
+        for (int v : rewardValues)
+        {
+            if (s.contains(v)) continue;
+            if (v == m - 1 || s.contains(m - 1 - v)) return m * 2 - 1;
+            s.insert(v);
+        }
+
+        ranges::sort(rewardValues); // 排序
+        rewardValues.erase(unique(rewardValues.begin(), rewardValues.end()), rewardValues.end()); // 去重
+        // 用二进制数 f 代替数组，第 j 位为 1 表示 f[j] = true
+        bitset<100000> f{1}; // 初始化，f[0] = 1，即总奖励为零是可以满足的（就是啥都不选）
+        for (int v : rewardValues) 
+        {
+            int shift = f.size() - v;
+            // 左移 shift 再右移 shift，把所有 >= v 的比特位置为 0，保留 v 位(0 ~ v - 1) 
+            // f |= f << shift >> shift << v
+            f |= f << shift >> (shift - v);
+        }
+        int ans = rewardValues.back() * 2 - 1;
+        while (!f.test(ans)) ans--;
         return ans;
     }
 };
