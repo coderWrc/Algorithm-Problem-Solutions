@@ -8,6 +8,8 @@
       * [将一个数字表示成幂的和的方案数](#将一个数字表示成幂的和的方案数)
       * [执行操作可获得的最大总奖励 |](#执行操作可获得的最大总奖励-)
       * [执行操作可获得的最大总奖励 ||](#执行操作可获得的最大总奖励--1)
+      * [一和零](#一和零)
+      * [最后一块石头的重量 ||](#最后一块石头的重量-)
 
    2. 完全背包
       * [零钱兑换](#零钱兑换)
@@ -272,6 +274,125 @@ public:
         int ans = rewardValues.back() * 2 - 1;
         while (!f.test(ans)) ans--;
         return ans;
+    }
+};
+```
+# [一和零](https://leetcode.cn/problems/ones-and-zeroes/description/)
+[top](#三背包)
+```
+class Solution 
+{
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) 
+    {
+        vector f(m + 1, vector<int>(n + 1));
+        for (string& s : strs)
+        {
+            int cnt0 = ranges::count(s, '0');
+            int cnt1 = s.size() - cnt0;
+            for (int j = m; j >= cnt0; j--)
+            {
+                for (int k = n; k >= cnt1; k--)
+                {
+                    f[j][k] = max(f[j][k], f[j - cnt0][k - cnt1] + 1);
+                }
+            }
+        }
+        return f[m][n];
+    }
+};
+```
+优化：
+```
+class Solution 
+{
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) 
+    {
+        vector f(m + 1, vector<int>(n + 1));
+        int sum0 = 0, sum1 = 0;
+        for (string& s : strs)
+        {
+            int cnt0 = ranges::count(s, '0');
+            int cnt1 = s.size() - cnt0;
+            sum0 = min(sum0 + cnt0, m);
+            sum1 = min(sum1 + cnt1, n);
+            for (int j = sum0; j >= cnt0; j--)
+            {
+                for (int k = sum1; k >= cnt1; k--)
+                {
+                    f[j][k] = max(f[j][k], f[j - cnt0][k - cnt1] + 1);
+                }
+            }
+        }
+        int ans = 0;
+        for (auto& row : f) 
+        {
+            ans = max(ans, ranges::max(row));
+        }
+        return ans;
+    }
+};
+```
+# [最后一块石头的重量 ||](https://leetcode.cn/problems/last-stone-weight-ii/description/)
+[top](#三背包)
+```
+class Solution 
+{
+public:
+    int lastStoneWeightII(vector<int>& stones) 
+    {
+        int sum = accumulate(stones.begin(), stones.end(), 0);
+        int target = sum >> 1;
+        vector<int> f(target + 1);
+        for (int stone : stones)
+        {
+            for (int j = target; j >= stone; j--)
+            {
+                f[j] = max(f[j], f[j - stone] + stone);
+            }
+        }
+        return sum - 2 * f[target];
+    }
+};
+```
+# []()
+[top](#三背包)
+```
+class Solution 
+{
+public:
+    int closestCost(vector<int>& baseCosts, vector<int>& toppingCosts, int target) 
+    {
+        int x = *min_element(baseCosts.begin(), baseCosts.end()); // 找到最小的基料开销
+        if (x >= target) return x; // 若 x >= target，添加配料没法缩小开销与 target 的距离，直接返回
+
+        vector<bool> f(target + 1, false); // f[i] 表示是否能制作开销为 i 的甜品
+        // 最小的基料开销与 target 的距离为 target - x，所以答案一定在 [x, target * 2 - x] 中
+        // 对于超过 target 的基料，只需保存 (target, target * 2 - x] 范围内的
+        int res = target * 2 - x; // 大于 target 的最小开销
+        for (auto& b : baseCosts) 
+        {
+            if (b <= target) f[b] = true;
+            else res = min(res, b);
+        }
+        for (auto& t : toppingCosts) 
+        {
+            for (int cnt = 1; cnt <= 2; cnt++)
+            {
+                for (int i = target; i >= 1; i--) 
+                {
+                    if (f[i] && i + t > target) res = min(res, i + t); // 这个必须在前，即在加辅料之前，否则相当于多加了
+                    if (i > t) f[i] = f[i] | f[i - t]; // 这个必须在后，执行一次这个，相当于加一次辅料
+                }
+            }
+        }
+
+        for (int i = target; target - i <= res - target; i--)
+        {
+            if (f[i]) return i;
+        }
+        return res;
     }
 };
 ```
