@@ -1,22 +1,23 @@
-这是一名大一计算机学生，他正在学习算法，想看看他的成长经历吗？快来吧   
-## :pencil2: 算法    
+这是一名大一计算机学生，他正在学习算法，想看看他的成长经历吗？快来吧  
+## :pencil2: 算法  
   
 - [洛谷题解](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/洛谷题解/洛谷题解%20-%20目录.md)  
 - [LeetCode 题解](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/LeetCode%20题解/LeetCode%20题解%20-%20目录.md)
 - [算法原理实现](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法原理实现/算法原理实现目录.md)  
-- [算法基础](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法基础/目录.md)  
+- [算法基础](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法基础/目录.md)   
+- [算法巩固](https://github.com/coderWrc/Algorithm-Problem-Solutions/blob/main/算法巩固.md)
 
 
 
 现在东西太少了，我就先随便放点东西
-***  
+***
 >1. 题库:包含8-15届蓝桥杯真题，采用与蓝桥杯大赛相同的测评数据，供你日常练习。同时，还提供算法模板题和经典算法题，共计6000+道，助你全面提升。
 >>
->题库链接:https://www.lanqiao.cn/problems/?first_category_id=1  
+>题库链接:https://www.lanqiao.cn/problems/?first_category_id=1
 >>
->蓝桥杯C/C++、Java、Python真题卷：https://www.lanqiao.cn/paper/  
+>蓝桥杯C/C++、Java、Python真题卷：https://www.lanqiao.cn/paper/
 >>
->2. 竞赛规则及知识点大纲：详细了解赛事规则以及比赛的考察范围，为备赛制定科学的学习计划。 
+>2. 竞赛规则及知识点大纲：详细了解赛事规则以及比赛的考察范围，为备赛制定科学的学习计划。
 >>
 >下载链接:https://dasai.lanqiao.cn/notices/846/
 >3. 备赛手册：包含赛程安排、备考讲座、考试环境安装等信息，帮助你全面了解蓝桥杯相关事项。
