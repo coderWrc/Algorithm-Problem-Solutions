@@ -15,7 +15,7 @@
 >>
 >题库链接:https://www.lanqiao.cn/problems/?first_category_id=1
 >>
->蓝桥杯C/C++、Java、Python真题卷：https://www.lanqiao.cn/paper/
+>蓝桥杯C/C++、Java、Python真题卷：https://www.lanqiao.cn/paper/ 
 >>
 >2. 竞赛规则及知识点大纲：详细了解赛事规则以及比赛的考察范围，为备赛制定科学的学习计划。
 >>
